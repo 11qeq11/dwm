@@ -67,6 +67,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont};
 static const char *termcmd[]  = { "st", NULL };
+/* Get OTP password  */
+static const char *pythonotp[] = { "otp.py",  NULL };
+
 /* Make functional key working, preset created for Keychron k10 keys */
 
 /* Volume */
@@ -108,6 +111,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_equal,  setgaps,	   {.i = +1 } },
 	{ MODKEY|ShiftMask,		XK_equal,  setgaps,	   {.i =  0 } },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
+    { Mod1Mask,                     XK_w,      spawn,          {.v = pythonotp } },
     { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = increasevolume } }, 
     { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = decreasevolume } }, 
     { 0,                     XF86XK_AudioMute, spawn,          {.v = mutevolume } }, 
